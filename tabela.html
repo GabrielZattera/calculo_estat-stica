@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas Estatísticas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="index.html">Explicação</a></li>
+                <li><a href="tabela.html" class="active">Tabelas</a></li>
+                <li><a href="graficos.html">Gráficos</a></li>
+            </ul>
+        </nav>
+        <main>
+            <!-- Seção de entrada e ROL -->
+            <section class="data-section">
+                <div class="table-container">
+                    <h3>Dados Brutos</h3>
+                    <p class="help">Preencha os valores nas células (4 colunas × 10 linhas).</p>
+                    <table id="dados-brutos" class="data-table" aria-label="Tabela de dados brutos">
+                        <thead>
+                            <tr>
+                                <th>Col 1</th>
+                                <th>Col 2</th>
+                                <th>Col 3</th>
+                                <th>Col 4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                            <tr><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td><td><input class="data-cell" /></td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="controls">
+                        <label for="table-name">Nome da tabela:</label>
+                        <input id="table-name" placeholder="Ex: Amostra A" />
+
+                        <label for="sort-type">Ordenar como:</label>
+                        <select id="sort-type">
+                            <option value="auto">Automático (numérico se possível)</option>
+                            <option value="numeric">Numérica (crescente)</option>
+                            <option value="alpha">Alfabética (A → Z)</option>
+                        </select>
+                        <button id="apply-btn" type="button">Organizar ROL</button>
+                        <button id="clear-btn" type="button" class="muted">Limpar</button>
+                    </div>
+
+                </div>
+
+                <div class="table-container">
+                    <h3>ROL (Ordenado) — <span id="table-name-display">Sem nome</span></h3>
+                    <p class="help">A tabela ROL exibirá os dados brutos organizados conforme a opção escolhida.</p>
+                    <table id="rol-table" class="data-table" aria-label="Tabela ROL">
+                        <thead>
+                            <tr>
+                                <th>Col 1</th>
+                                <th>Col 2</th>
+                                <th>Col 3</th>
+                                <th>Col 4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                            <tr><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td><td class="rol-cell"></td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="info-panel" aria-live="polite">
+                        <h4>Informações:</h4>
+                        <pre id="info-content">Nenhuma informação gerada.</pre>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <h3>Tabela de Frequências — <span id="freq-table-name">Sem nome</span></h3>
+                    <table id="freq-table" class="data-table" aria-label="Tabela de Frequências">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Frequência Absoluta (FA)</th>
+                                <th>Frequência Absoluta Acumulada (FAA)</th>
+                                <th>Frequência Relativa (FR)</th>
+                                <th>Frequência Relativa Acumulada (FRA)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="freq-table-body">
+                            <!-- Linhas geradas via JS -->
+                        </tbody>
+                    </table>
+                    <p class="help">Preencha os valores de FA manualmente. Os demais campos são calculados automaticamente.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="storage.js"></script>
+    <script src="script.js"></script>
+
+        <footer class="footer-profissional">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3>Transporte Escolar</h3>
+                        </div>
+                        <p class="footer-descricao">Sistema de gerenciamento completo para calcular estatística.</p>
+                    </div>
+          
+                    <div class="footer-section">
+                        <h4>Informações</h4>
+                        <ul class="footer-links">
+                            <li>Sobre o Sistema</li>
+                            <li>Política de Privacidade</li>
+                            <li>Termos de Uso</li>
+                            <li>Central de Ajuda</li>
+                        </ul>
+                    </div>
+          
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <ul class="footer-links">
+                            <li>📧 Email: gabrielzattera86@gmail.com</li>
+                            <li>📞 Telefone: (41) 99926-4071</li>
+                            <li>📍 Endereço: Campo Largo, PR</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; <span id="anoAtual">2025</span> Todos os direitos reservados.</p>
+                    </div>
+                    <div class="footer-dev">
+                        <p>Desenvolvido com por <strong>Zattera</strong></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+</body>
+</html>
