@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos - Estatística</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="index.html">Explicação</a></li>
+                <li><a href="tabela.html">Tabelas</a></li>
+                <li><a href="graficos.html" class="active">Gráficos</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Gráficos a partir do ROL</h1>
+            <p class="help">Esta página lê os valores do ROL gerado em <code>tabela.html</code> (após clicar em "Organizar ROL"). Clique em "Carregar dados" para gerar os gráficos a partir do ROL salvo.</p>
+            <div style="margin:12px 0">
+                <button id="load-rol-btn" class="muted">Carregar dados</button>
+            </div>
+
+            <section class="data-section" id="charts-section">
+                <div class="table-container">
+                    <h4 class="chart-title">Gráfico (Barra horizontal) — Frequência Absoluta (FA)</h4>
+                    <canvas id="chart-bar-horizontal" style="max-height:240px;margin-top:6px"></canvas>
+                </div>
+
+                <div class="table-container">
+                    <h4 class="chart-title">Gráfico (Linha) — Frequência Absoluta Acumulada (FAA)</h4>
+                    <canvas id="chart-line" style="max-height:240px;margin-top:6px"></canvas>
+                </div>
+
+                <div class="table-container">
+                    <h4 class="chart-title">Gráfico (Coluna vertical) — Frequência Absoluta (FA)</h4>
+                    <canvas id="chart-column" style="max-height:240px;margin-top:6px"></canvas>
+                </div>
+
+                <div class="table-container">
+                    <h4 class="chart-title">Gráfico (Pizza) — Frequência Relativa (%)</h4>
+                    <canvas id="chart-pie" style="max-height:240px;margin-top:6px"></canvas>
+                </div>
+            </section>
+
+            <p class="help">Observação: gere o ROL em <a href="tabela.html">Tabelas</a> antes de abrir esta página. Os dados ficam salvos localmente no seu navegador.</p>
+        </main>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="graficos.js"></script>
+    
+        <footer class="footer-profissional">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3>Transporte Escolar</h3>
+                        </div>
+                        <p class="footer-descricao">Sistema de gerenciamento completo para calcular estatística.</p>
+                    </div>
+          
+                    <div class="footer-section">
+                        <h4>Informações</h4>
+                        <ul class="footer-links">
+                            <li>Sobre o Sistema</li>
+                            <li>Política de Privacidade</li>
+                            <li>Termos de Uso</li>
+                            <li>Central de Ajuda</li>
+                        </ul>
+                    </div>
+          
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <ul class="footer-links">
+                            <li>📧 Email: gabrielzattera86@gmail.com</li>
+                            <li>📞 Telefone: (41) 99926-4071</li>
+                            <li>📍 Endereço: Campo Largo, PR</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; <span id="anoAtual">2025</span> Todos os direitos reservados.</p>
+                    </div>
+                    <div class="footer-dev">
+                        <p>Desenvolvido com por <strong>Zattera</strong></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+</body>
+</html>
